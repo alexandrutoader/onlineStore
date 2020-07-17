@@ -35,6 +35,7 @@ dependencies {
 
 	compile group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.2.32'
 	compile 'org.modelmapper:modelmapper:2.3.3'
+	compile group: 'org.springframework.security', name: 'spring-security-crypto', version: '3.1.0.RELEASE'
 }
 
 test {

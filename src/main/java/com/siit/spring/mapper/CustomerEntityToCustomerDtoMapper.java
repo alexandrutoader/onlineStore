@@ -20,9 +20,9 @@ public class CustomerEntityToCustomerDtoMapper implements Converter<Customer, Cu
     public CustomerDto convert(Customer source) {
         return CustomerDto.builder()
                 .customerId(source.getCustomerId())
-                .addresses(mapAddress(source.getAddresses()))
-                .cart(mapCart(source.getCart()))
-                .orders(mapOrders(source.getOrders()))
+//                .addresses(mapAddress(source.getAddresses()))
+//                .cart(mapCart(source.getCart()))
+//                .orders(mapOrders(source.getOrders()))
                 .addressId(source.getAddressId())
                 .agentId(source.getAgentId())
                 .email(source.getEmail())
@@ -31,34 +31,33 @@ public class CustomerEntityToCustomerDtoMapper implements Converter<Customer, Cu
                 .password(source.getPassword())
                 .status(source.getStatus())
                 .telephone(source.getTelephone())
-                .token(source.getToken())
                 .build();
     }
 
-    public List<AddressDto> mapAddress(List<Address>addresses) {
-        return addresses.stream()
-                .map(addressEntityOnlyToAddressDtoMapper::convert)
-                .collect(Collectors.toList());
-    }
+//    public List<AddressDto> mapAddress(List<Address>addresses) {
+//        return addresses.stream()
+//                .map(addressEntityOnlyToAddressDtoMapper::convert)
+//                .collect(Collectors.toList());
+//    }
+//
+//    public CartDto mapCart(Cart cart) {
+//        if (cart == null) {
+//            return null;
+//        }
+//        return CartDto.builder()
+//                .customer(mapCustomer(cart.getCustomer()))
+//                .status(cart.getStatus())
+//                .token(cart.getToken())
+//                .build();
+//    }
 
-    public CartDto mapCart(Cart cart) {
-        if (cart == null) {
-            return null;
-        }
-        return CartDto.builder()
-                .customer(mapCustomer(cart.getCustomer()))
-                .status(cart.getStatus())
-                .token(cart.getToken())
-                .build();
-    }
-
-    public CustomerDto mapCustomer(Customer customer) {
-        return customerEntityOnlyToCustomerDtoMapper.convert(customer);
-    }
-
-    public List<OrderDto> mapOrders(List<Order> orders) {
-        return orders.stream()
-                .map(orderEntityListOnlyToOrderListDtoMapper::convert)
-                .collect(Collectors.toList());
-    }
+//    public CustomerDto mapCustomer(Customer customer) {
+//        return customerEntityOnlyToCustomerDtoMapper.convert(customer);
+//    }
+//
+//    public List<OrderDto> mapOrders(List<Order> orders) {
+//        return orders.stream()
+//                .map(orderEntityListOnlyToOrderListDtoMapper::convert)
+//                .collect(Collectors.toList());
+//    }
 }

@@ -13,8 +13,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "address")
 @Data
 @Builder
-@Setter
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {

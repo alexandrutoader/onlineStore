@@ -26,9 +26,8 @@ public class CustomerEntityOnlyToCustomerDtoMapper implements Converter<Customer
     public CustomerDto convert(Customer source) {
         return CustomerDto.builder()
                 .customerId(source.getCustomerId())
-                .orders(mapOrders(source.getOrders()))
-                .cart(mapCart(source.getCart()))
-                .token(source.getToken())
+//                .orders(mapOrders(source.getOrders()))
+//                .cart(mapCart(source.getCart()))
                 .telephone(source.getTelephone())
                 .status(source.getStatus())
                 .password(source.getPassword())
@@ -37,7 +36,7 @@ public class CustomerEntityOnlyToCustomerDtoMapper implements Converter<Customer
                 .email(source.getEmail())
                 .agentId(source.getAgentId())
                 .addressId(source.getAddressId())
-                .addresses(mapAddresses(source.getAddresses()))
+//                .addresses(mapAddresses(source.getAddresses()))
                 .build();
     }
 
@@ -60,8 +59,8 @@ public class CustomerEntityOnlyToCustomerDtoMapper implements Converter<Customer
 
     public CustomerDto mapCustomer(Customer customer) {
         return CustomerDto.builder()
-                .cart(mapCart(customer.getCart()))
-                .addresses(mapAddresses(customer.getAddresses()))
+//                .cart(mapCart(customer.getCart()))
+//                .addresses(mapAddresses(customer.getAddresses()))
                 .addressId(customer.getAddressId())
                 .agentId(customer.getAgentId())
                 .email(customer.getEmail())
@@ -70,8 +69,7 @@ public class CustomerEntityOnlyToCustomerDtoMapper implements Converter<Customer
                 .password(customer.getPassword())
                 .status(customer.getStatus())
                 .telephone(customer.getTelephone())
-                .token(customer.getToken())
-                .orders(mapOrders(customer.getOrders()))
+//                .orders(mapOrders(customer.getOrders()))
                 .build();
     }
 

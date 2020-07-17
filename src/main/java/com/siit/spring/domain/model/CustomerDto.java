@@ -27,12 +27,10 @@ public class CustomerDto {
 
     private Integer status;
 
-    private String token;
+//    private List<AddressDto> addresses;
 
-    private List<AddressDto> addresses;
-
-    @Nullable
-    private CartDto cart;
-
-    private List<OrderDto> orders;
+//    @Nullable
+//    private CartDto cart;
+//
+//    private List<OrderDto> orders;
 }

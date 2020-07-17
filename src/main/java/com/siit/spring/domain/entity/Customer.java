@@ -44,8 +44,6 @@ public class Customer {
 
     private Integer status;
 
-    private String token;
-
     @Column(name = "date_added")
     private LocalDate dateAdded;
 
