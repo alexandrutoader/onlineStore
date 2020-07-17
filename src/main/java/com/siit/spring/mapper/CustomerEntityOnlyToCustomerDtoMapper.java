@@ -25,7 +25,7 @@ public class CustomerEntityOnlyToCustomerDtoMapper implements Converter<Customer
     @Override
     public CustomerDto convert(Customer source) {
         return CustomerDto.builder()
-                .id(source.getCustomerId())
+                .customerId(source.getCustomerId())
                 .orders(mapOrders(source.getOrders()))
                 .cart(mapCart(source.getCart()))
                 .token(source.getToken())

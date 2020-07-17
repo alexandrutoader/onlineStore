@@ -18,7 +18,7 @@ public class AddressEntityToAddressDtoMapper implements Converter<Address, Addre
     public AddressDto convert(Address source) {
         return AddressDto.builder()
                 .addressId(source.getAddressId())
-//                .customer(mapCustomer(source.getCustomer()))
+                .customerId(source.getCustomer().getCustomerId())
                 .firstName(source.getFirstName())
                 .lastName(source.getLastName())
                 .telephone(source.getTelephone())

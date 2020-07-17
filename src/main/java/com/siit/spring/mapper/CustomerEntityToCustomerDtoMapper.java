@@ -19,6 +19,7 @@ public class CustomerEntityToCustomerDtoMapper implements Converter<Customer, Cu
     @Override
     public CustomerDto convert(Customer source) {
         return CustomerDto.builder()
+                .customerId(source.getCustomerId())
                 .addresses(mapAddress(source.getAddresses()))
                 .cart(mapCart(source.getCart()))
                 .orders(mapOrders(source.getOrders()))
@@ -41,6 +42,9 @@ public class CustomerEntityToCustomerDtoMapper implements Converter<Customer, Cu
     }
 
     public CartDto mapCart(Cart cart) {
+        if (cart == null) {
+            return null;
+        }
         return CartDto.builder()
                 .customer(mapCustomer(cart.getCustomer()))
                 .status(cart.getStatus())

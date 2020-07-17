@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @Builder
 public class CustomerDto {
-    private Long id;
+    private Long customerId;
 
     private String firstName;
 
