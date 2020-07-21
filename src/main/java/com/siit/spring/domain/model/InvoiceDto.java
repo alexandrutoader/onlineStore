@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class InvoiceDto {
-    private OrderDto order;
+    private Long orderId;
 
     private Long invoiceNumber;
 

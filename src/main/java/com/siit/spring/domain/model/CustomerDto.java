@@ -4,8 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.lang.Nullable;
 
-import java.util.List;
-
 @Data
 @Builder
 public class CustomerDto {
@@ -21,16 +19,10 @@ public class CustomerDto {
 
     private String password;
 
+    @Nullable
     private Long addressId;
 
     private Long agentId;
 
     private Integer status;
-
-//    private List<AddressDto> addresses;
-
-//    @Nullable
-//    private CartDto cart;
-//
-//    private List<OrderDto> orders;
 }

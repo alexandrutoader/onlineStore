@@ -1,9 +1,7 @@
 package com.siit.spring.mapper;
 
 import com.siit.spring.domain.entity.Address;
-import com.siit.spring.domain.entity.Customer;
 import com.siit.spring.domain.model.AddressDto;
-import com.siit.spring.domain.model.CustomerDto;
 import lombok.AllArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -12,13 +10,16 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class AddressEntityToAddressDtoMapper implements Converter<Address, AddressDto> {
 
-    private final CustomerEntityOnlyToCustomerDtoMapper customerEntityOnlyToCustomerDtoMapper;
-
     @Override
     public AddressDto convert(Address source) {
+        Long customerId = null;
+        if (null != source.getCustomer()) {
+            customerId = source.getCustomer().getCustomerId();
+        }
+
         return AddressDto.builder()
                 .addressId(source.getAddressId())
-                .customerId(source.getCustomer().getCustomerId())
+                .customerId(customerId)
                 .firstName(source.getFirstName())
                 .lastName(source.getLastName())
                 .telephone(source.getTelephone())
@@ -27,9 +28,5 @@ public class AddressEntityToAddressDtoMapper implements Converter<Address, Addre
                 .postalCode(source.getPostalCode())
                 .status(source.getStatus())
                 .build();
-    }
-
-    public CustomerDto mapCustomer(Customer customer) {
-        return customerEntityOnlyToCustomerDtoMapper.convert(customer);
     }
 }

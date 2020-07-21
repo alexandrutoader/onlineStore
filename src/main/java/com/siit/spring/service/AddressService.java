@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,15 +31,23 @@ public class AddressService {
     private final CustomerService customerService;
 
     public AddressDto create(AddressDto addressDto) {
+        Logger logger = Logger.getAnonymousLogger();
+        if (null == addressDto.getCustomerId()) {
+            logger.log(Level.SEVERE, "null pointer exception was thrown", "Customer id cannot be null!");
+            throw new NullPointerException("Customer id cannot be null!");
+        }
+
         CustomerDto customerDto = customerService.findById(addressDto.getCustomerId());
         Customer customer = customerDtoOnlyToCustomerEntityMapper.convert(customerDto);
         Address address = addressDtoToAddressEntityMapper.convert(addressDto);
 
         if (null == address) {
+            logger.log(Level.SEVERE, "null pointer exception was thrown", "Address cannot be null! Please provide the address!");
             throw new NullPointerException("Address cannot be null! Please provide the address!");
         }
 
         if (null == customer) {
+            logger.log(Level.SEVERE, "null pointer exception was thrown", "Customer cannot be null! Please provide customer_id!");
             throw new NullPointerException("Customer cannot be null! Please provide customer_id!");
         }
 

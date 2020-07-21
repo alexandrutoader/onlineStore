@@ -1,7 +1,7 @@
 package com.siit.spring.mapper;
 
-import com.siit.spring.domain.entity.Order;
-import com.siit.spring.domain.model.OrderDto;
+import com.siit.spring.domain.entity.*;
+import com.siit.spring.domain.model.*;
 import lombok.AllArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -11,13 +11,19 @@ import org.springframework.stereotype.Component;
 public class OrderEntityOnlyToOrderDtoMapper implements Converter<Order, OrderDto> {
     @Override
     public OrderDto convert(Order source) {
+        Long invoiceId = null;
+        if (null != source.getInvoices()) {
+            invoiceId = source.getInvoices().get(0).getInvoiceId();
+        }
+
         return OrderDto.builder()
-                .address(source.getAddress())
+                .orderId(source.getOrderId())
+                .addressId(source.getAddress().getAddressId())
                 .currency(source.getCurrency())
-                .customer(source.getCustomer())
-                .invoices(source.getInvoices())
-                .orderStatus(source.getOrderStatus())
-                .payment(source.getPayment())
+                .customerId(source.getCustomer().getCustomerId())
+                .invoiceId(invoiceId)
+                .paymentId(source.getPayment().getId())
+                .orderStatusId(source.getOrderStatus().getId())
                 .status(source.getStatus())
                 .total(source.getTotal())
                 .build();

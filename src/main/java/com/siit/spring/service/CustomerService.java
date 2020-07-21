@@ -2,7 +2,6 @@ package com.siit.spring.service;
 
 import com.siit.spring.domain.entity.Customer;
 import com.siit.spring.domain.model.CustomerDto;
-import com.siit.spring.exception.AddressNotFoundException;
 import com.siit.spring.exception.CustomerNotFoundException;
 import com.siit.spring.mapper.CustomerDtoOnlyToCustomerEntityMapper;
 import com.siit.spring.mapper.CustomerEntityToCustomerDtoMapper;
@@ -73,6 +72,10 @@ public class CustomerService {
 
         if (null != customerDto.getTelephone()) {
             customer.setTelephone(customerDto.getTelephone());
+        }
+
+        if (null != customerDto.getAddressId()) {
+            customer.setAddressId(customerDto.getAddressId());
         }
 
         if (null != customerDto.getPassword()) {

@@ -6,9 +6,11 @@ import lombok.Data;
 @Data
 @Builder
 public class PaymentDto {
+    private Long id;
+
     private String name;
 
     private Integer status;
 
-    private OrderDto order;
+    private Long orderId;
 }

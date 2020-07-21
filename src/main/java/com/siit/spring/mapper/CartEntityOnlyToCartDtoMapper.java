@@ -18,7 +18,7 @@ public class CartEntityOnlyToCartDtoMapper implements Converter<Cart, CartDto> {
         return CartDto.builder()
                 .token(source.getToken())
                 .status(source.getStatus())
-                .customer(mapCustomer(source.getCustomer()))
+                .customerId(source.getCustomer().getCustomerId())
                 .build();
     }
 

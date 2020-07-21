@@ -23,5 +23,5 @@ public class ProductDto {
 
     private Integer addedBy;
 
-    private CartProductsDto cartProduct;
+    private Long cartProductId;
 }

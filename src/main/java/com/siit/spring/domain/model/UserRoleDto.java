@@ -1,6 +1,5 @@
 package com.siit.spring.domain.model;
 
-import com.siit.spring.domain.entity.User;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,5 +10,5 @@ public class UserRoleDto {
 
     private Integer status;
 
-    private User user;
+    private Long userId;
 }

@@ -1,27 +1,30 @@
 package com.siit.spring.domain.model;
 
-import com.siit.spring.domain.entity.*;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.lang.Nullable;
+
 import java.math.BigDecimal;
-import java.util.List;
 
 @Data
 @Builder
 public class OrderDto {
-    private Customer customer;
+    private Long orderId;
 
-    private List<Invoice> invoices;
+    private Long customerId;
 
-    private Address address;
+    @Nullable
+    private Long invoiceId;
 
-    private Payment payment;
+    private Long addressId;
+
+    private Long paymentId;
 
     private BigDecimal total;
 
     private String currency;
 
-    private OrderStatus orderStatus;
+    private Long orderStatusId;
 
     private Integer status;
 }
