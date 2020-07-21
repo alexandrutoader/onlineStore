@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
@@ -24,6 +25,7 @@ public class Invoice {
     @Column(name = "invoice_id")
     private Long invoiceId;
 
+    @Nullable
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;

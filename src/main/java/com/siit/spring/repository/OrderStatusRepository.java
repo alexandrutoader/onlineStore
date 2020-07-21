@@ -1,6 +1,5 @@
 package com.siit.spring.repository;
 
-import com.siit.spring.domain.entity.Order;
 import com.siit.spring.domain.entity.OrderStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,5 +11,5 @@ import java.util.List;
 public interface OrderStatusRepository extends JpaRepository<OrderStatus, Long> {
     @Query("select o from OrderStatus o " +
             "order by o.sortOrder")
-    List<Order> getAll();
+    List<OrderStatus> getAll();
 }

@@ -7,6 +7,8 @@ import org.springframework.lang.Nullable;
 @Data
 @Builder
 public class CartDto {
+    private Long id;
+
     @Nullable
     private Long customerId;
 

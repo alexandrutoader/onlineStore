@@ -1,6 +1,6 @@
 package com.siit.spring.repository;
 
-import com.siit.spring.domain.entity.Payment;
+import com.siit.spring.domain.entity.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PaymentRepository extends JpaRepository<Payment, Long> {
-    @Query("select p from Payment p " +
-            "order by p.id")
-    List<Payment> getAll();
+public interface CartRepository extends JpaRepository<Cart, Long> {
+    @Query("select c from Cart c " +
+            "order by c.id")
+    List<Cart> getAll();
 }
