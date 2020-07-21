@@ -25,6 +25,7 @@ public class OrderDtoOnlyToOrderEntityMapper implements Converter<OrderDto, Orde
         Payment payment = paymentRepository.findById(source.getPaymentId()).orElse(null);
 
         return Order.builder()
+                .invoiceId(source.getInvoiceId())
                 .address(address)
                 .currency(source.getCurrency())
                 .customer(customer)

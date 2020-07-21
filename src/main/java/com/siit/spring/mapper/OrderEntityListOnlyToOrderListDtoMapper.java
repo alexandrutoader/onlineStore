@@ -13,8 +13,9 @@ public class OrderEntityListOnlyToOrderListDtoMapper implements Converter<Order,
     @Override
     public OrderDto convert(Order source) {
         Long invoiceId = null;
-        if (null != source.getInvoices()) {
-            invoiceId = source.getInvoices().get(0).getInvoiceId();
+
+        if (null != source.getInvoiceId()) {
+            invoiceId = source.getInvoiceId();
         }
         return OrderDto.builder()
                 .orderId(source.getOrderId())

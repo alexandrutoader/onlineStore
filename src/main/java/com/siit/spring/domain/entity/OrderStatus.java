@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -33,6 +34,6 @@ public class OrderStatus {
     @Column(name = "date_modified")
     private LocalDate dateModified;
 
-    @OneToOne(mappedBy = "orderStatus")
-    private Order order;
+    @OneToMany(mappedBy = "orderStatus")
+    private List<Order> order;
 }

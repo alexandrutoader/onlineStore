@@ -18,13 +18,8 @@ public class AddressDtoToAddressEntityMapper implements Converter<AddressDto, Ad
 
     @Override
     public Address convert(AddressDto source) {
-        Customer customer = null;
-        if (null != source.getCustomerId()) {
-            customer = customerRepository.findById(source.getCustomerId()).orElse(null);
-        }
 
         return Address.builder()
-                .customer(customer)
                 .firstName(source.getFirstName())
                 .lastName(source.getLastName())
                 .telephone(source.getTelephone())

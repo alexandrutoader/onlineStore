@@ -74,10 +74,6 @@ public class CustomerService {
             customer.setTelephone(customerDto.getTelephone());
         }
 
-        if (null != customerDto.getAddressId()) {
-            customer.setAddressId(customerDto.getAddressId());
-        }
-
         if (null != customerDto.getPassword()) {
             int strength = 10;
             BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(strength);

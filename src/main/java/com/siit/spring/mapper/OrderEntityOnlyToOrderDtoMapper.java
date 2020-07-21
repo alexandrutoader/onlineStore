@@ -12,7 +12,7 @@ public class OrderEntityOnlyToOrderDtoMapper implements Converter<Order, OrderDt
     @Override
     public OrderDto convert(Order source) {
         Long invoiceId = null;
-        if (null != source.getInvoices()) {
+        if (null != source.getInvoices() && source.getInvoices().size() > 0) {
             invoiceId = source.getInvoices().get(0).getInvoiceId();
         }
 

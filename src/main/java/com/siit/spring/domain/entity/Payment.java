@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -29,6 +30,6 @@ public class Payment {
     @Column(name = "date_added")
     private LocalDate dateAdded;
 
-    @OneToOne(mappedBy = "payment")
-    private Order order;
+    @OneToMany(mappedBy = "payment")
+    private List<Order> order;
 }

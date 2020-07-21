@@ -16,13 +16,6 @@ public class AddressEntityOnlyToAddressDtoMapper implements Converter<Address, A
 
     @Override
     public AddressDto convert(Address source) {
-        Long customerId = null;
-        if (null != source.getCustomer()) {
-            Customer customer = customerRepository.findById(source.getCustomer().getCustomerId()).orElse(null);
-            if (null != customer) {
-                customerId = customer.getCustomerId();
-            }
-        }
 
         return AddressDto.builder()
                 .status(source.getStatus())
@@ -33,7 +26,6 @@ public class AddressEntityOnlyToAddressDtoMapper implements Converter<Address, A
                 .firstName(source.getFirstName())
                 .lastName(source.getLastName())
                 .addressId(source.getAddressId())
-                .customerId(customerId)
                 .build();
     }
 }

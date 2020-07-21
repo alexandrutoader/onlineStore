@@ -89,10 +89,6 @@ public class OrderService {
                 order.setCurrency(orderDto.getCurrency());
             }
 
-            if (null != orderDto.getCustomerId()) {
-                customerRepository.findById(orderDto.getCustomerId()).ifPresent(order::setCustomer);
-            }
-
             if (null != orderDto.getStatus()) {
                 order.setStatus(orderDto.getStatus());
             }

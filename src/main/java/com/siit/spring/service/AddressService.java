@@ -1,13 +1,10 @@
 package com.siit.spring.service;
 
 import com.siit.spring.domain.entity.Address;
-import com.siit.spring.domain.entity.Customer;
 import com.siit.spring.domain.model.AddressDto;
-import com.siit.spring.domain.model.CustomerDto;
 import com.siit.spring.exception.AddressNotFoundException;
 import com.siit.spring.mapper.AddressDtoToAddressEntityMapper;
 import com.siit.spring.mapper.AddressEntityToAddressDtoMapper;
-import com.siit.spring.mapper.CustomerDtoOnlyToCustomerEntityMapper;
 import com.siit.spring.repository.AddressRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -26,19 +23,9 @@ public class AddressService {
 
     private final AddressDtoToAddressEntityMapper addressDtoToAddressEntityMapper;
     private final AddressEntityToAddressDtoMapper addressEntityToAddressDtoMapper;
-    private final CustomerDtoOnlyToCustomerEntityMapper customerDtoOnlyToCustomerEntityMapper;
-
-    private final CustomerService customerService;
 
     public AddressDto create(AddressDto addressDto) {
         Logger logger = Logger.getAnonymousLogger();
-        if (null == addressDto.getCustomerId()) {
-            logger.log(Level.SEVERE, "null pointer exception was thrown", "Customer id cannot be null!");
-            throw new NullPointerException("Customer id cannot be null!");
-        }
-
-        CustomerDto customerDto = customerService.findById(addressDto.getCustomerId());
-        Customer customer = customerDtoOnlyToCustomerEntityMapper.convert(customerDto);
         Address address = addressDtoToAddressEntityMapper.convert(addressDto);
 
         if (null == address) {
@@ -46,12 +33,6 @@ public class AddressService {
             throw new NullPointerException("Address cannot be null! Please provide the address!");
         }
 
-        if (null == customer) {
-            logger.log(Level.SEVERE, "null pointer exception was thrown", "Customer cannot be null! Please provide customer_id!");
-            throw new NullPointerException("Customer cannot be null! Please provide customer_id!");
-        }
-
-        address.setCustomer(customer);
         addressRepository.save(address);
         return addressEntityToAddressDtoMapper.convert(address);
     }

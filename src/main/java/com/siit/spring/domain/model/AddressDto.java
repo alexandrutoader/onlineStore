@@ -11,9 +11,6 @@ public class AddressDto {
     private Long addressId;
 
     @Nullable
-    private Long customerId;
-
-    @Nullable
     private String firstName;
 
     @Nullable
