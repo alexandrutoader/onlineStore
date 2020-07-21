@@ -3,10 +3,13 @@ package com.siit.spring.domain.model;
 import lombok.Builder;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
 public class ProductDto {
+    private Long productId;
+
     private String name;
 
     private BigDecimal price;
@@ -23,5 +26,7 @@ public class ProductDto {
 
     private Integer addedBy;
 
-    private Long cartProductId;
+    private LocalDateTime dateAdded;
+
+    private LocalDateTime dateModified;
 }

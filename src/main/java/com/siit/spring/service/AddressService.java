@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -105,5 +106,7 @@ public class AddressService {
         if (null != addressDto.getAddressName()) {
             address.setAddressName(addressDto.getAddressName());
         }
+
+        address.setDateModified(LocalDateTime.now());
     }
 }

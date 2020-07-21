@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -80,6 +81,8 @@ public class CustomerService {
             String encodedPassword = bCryptPasswordEncoder.encode(customerDto.getPassword());
             customer.setPassword(encodedPassword);
         }
+
+        customer.setDateModified(LocalDateTime.now());
     }
 
     public void delete(Long id) {

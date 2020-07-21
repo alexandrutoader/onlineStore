@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -28,7 +28,7 @@ public class Payment {
     private Integer status;
 
     @Column(name = "date_added")
-    private LocalDate dateAdded;
+    private LocalDateTime dateAdded;
 
     @OneToMany(mappedBy = "payment")
     private List<Order> order;

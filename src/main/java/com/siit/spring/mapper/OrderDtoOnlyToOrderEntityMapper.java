@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Component
 @AllArgsConstructor
@@ -33,8 +33,8 @@ public class OrderDtoOnlyToOrderEntityMapper implements Converter<OrderDto, Orde
                 .orderStatus(orderStatus)
                 .status(source.getStatus())
                 .total(source.getTotal())
-                .dateAdded(LocalDate.now())
-                .dateModified(LocalDate.now())
+                .dateAdded(LocalDateTime.now())
+                .dateModified(LocalDateTime.now())
                 .build();
     }
 }

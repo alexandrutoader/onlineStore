@@ -13,7 +13,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,8 +51,8 @@ public class CustomerDtoOnlyToCustomerEntityMapper implements Converter<Customer
                 .addresses(mapAddresses(addressDtos))
                 .orders(mapOrders(orderDtos))
                 .cart(mapCartDto(source.getCart()))
-                .dateAdded(LocalDate.now())
-                .dateModified(LocalDate.now())
+                .dateAdded(LocalDateTime.now())
+                .dateModified(LocalDateTime.now())
                 .build();
     }
 

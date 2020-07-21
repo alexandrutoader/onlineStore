@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -96,6 +97,8 @@ public class OrderService {
             if (null != orderDto.getTotal()) {
                 order.setTotal(orderDto.getTotal());
             }
+
+            order.setDateModified(LocalDateTime.now());
         }
     }
 

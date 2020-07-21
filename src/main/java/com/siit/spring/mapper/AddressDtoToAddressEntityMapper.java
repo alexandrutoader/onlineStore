@@ -10,6 +10,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Component
 @AllArgsConstructor
@@ -27,8 +28,8 @@ public class AddressDtoToAddressEntityMapper implements Converter<AddressDto, Ad
                 .city(source.getCity())
                 .postalCode(source.getPostalCode())
                 .status(source.getStatus())
-                .dateAdded(LocalDate.now())
-                .dateModified(LocalDate.now())
+                .dateAdded(LocalDateTime.now())
+                .dateModified(LocalDateTime.now())
                 .build();
     }
 }

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -36,8 +36,8 @@ public class Invoice {
     private Integer status;
 
     @Column(name = "date_added")
-    private LocalDate dateAdded;
+    private LocalDateTime dateAdded;
 
     @Column(name = "date_modified")
-    private LocalDate dateModified;
+    private LocalDateTime dateModified;
 }

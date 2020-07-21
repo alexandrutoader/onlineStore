@@ -5,7 +5,7 @@ import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -54,9 +54,9 @@ public class Address {
 
     @Nullable
     @Column(name = "date_added")
-    private LocalDate dateAdded;
+    private LocalDateTime dateAdded;
 
     @Nullable
     @Column(name = "date_modified")
-    private LocalDate dateModified;
+    private LocalDateTime dateModified;
 }

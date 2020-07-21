@@ -9,7 +9,7 @@ import org.springframework.lang.Nullable;
 import javax.persistence.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -56,8 +56,8 @@ public class Order {
     private Integer status;
 
     @Column(name = "date_added")
-    private LocalDate dateAdded;
+    private LocalDateTime dateAdded;
 
     @Column(name = "date_modified")
-    private LocalDate dateModified;
+    private LocalDateTime dateModified;
 }

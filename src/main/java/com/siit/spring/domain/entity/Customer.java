@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -45,10 +45,10 @@ public class Customer {
     private Integer status;
 
     @Column(name = "date_added")
-    private LocalDate dateAdded;
+    private LocalDateTime dateAdded;
 
     @Column(name = "date_modified")
-    private LocalDate dateModified;
+    private LocalDateTime dateModified;
 
     @OneToMany(mappedBy = "customer")
     private List<Address> addresses;
