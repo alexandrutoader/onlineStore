@@ -1,9 +1,7 @@
 package com.siit.spring.controller;
 
 import com.siit.spring.domain.model.CartDto;
-import com.siit.spring.domain.model.UserDto;
 import com.siit.spring.exception.CartNotFoundException;
-import com.siit.spring.exception.UserNotFoundException;
 import com.siit.spring.service.CartService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

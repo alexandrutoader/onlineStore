@@ -11,6 +11,4 @@ public class UserRoleDto {
     private String role;
 
     private Integer status;
-
-    private Long userId;
 }

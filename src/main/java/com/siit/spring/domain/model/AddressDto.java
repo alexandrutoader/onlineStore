@@ -30,4 +30,7 @@ public class AddressDto {
 
     @Nullable
     private Integer status;
+
+    @Nullable
+    private Long customerId;
 }

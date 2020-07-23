@@ -1,9 +1,7 @@
 package com.siit.spring.controller;
 
 import com.siit.spring.domain.model.InvoiceDto;
-import com.siit.spring.domain.model.OrderDto;
 import com.siit.spring.exception.InvoiceNotFoundException;
-import com.siit.spring.exception.OrderNotFoundException;
 import com.siit.spring.service.InvoiceService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

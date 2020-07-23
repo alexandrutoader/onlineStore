@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @AllArgsConstructor
 public class OrderStatusDtoToOrderStatusEntityMapper implements Converter<OrderStatusDto, OrderStatus> {
@@ -15,6 +17,8 @@ public class OrderStatusDtoToOrderStatusEntityMapper implements Converter<OrderS
                 .id(source.getId())
                 .sortOrder(source.getSortOrder())
                 .name(source.getName())
+                .dateAdded(LocalDateTime.now())
+                .dateModified(LocalDateTime.now())
                 .build();
     }
 }

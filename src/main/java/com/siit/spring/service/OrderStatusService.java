@@ -1,11 +1,8 @@
 package com.siit.spring.service;
 
 import com.siit.spring.domain.entity.OrderStatus;
-import com.siit.spring.domain.entity.Payment;
 import com.siit.spring.domain.model.OrderStatusDto;
-import com.siit.spring.domain.model.PaymentDto;
 import com.siit.spring.exception.OrderStatusNotFoundException;
-import com.siit.spring.exception.PaymentNotFoundException;
 import com.siit.spring.mapper.OrderStatusDtoToOrderStatusEntityMapper;
 import com.siit.spring.mapper.OrderStatusEntityToOrderStatusDtoMapper;
 import com.siit.spring.repository.OrderStatusRepository;

@@ -62,10 +62,6 @@ public class UserRoleService {
         if (null != userRoleDto.getStatus()) {
             userRole.setStatus(userRoleDto.getStatus());
         }
-
-        if (null != userRoleDto.getUserId()) {
-            userRepository.findById(userRoleDto.getUserId()).ifPresent(userRole::setUser);
-        }
     }
 
     public void delete(Long id) {

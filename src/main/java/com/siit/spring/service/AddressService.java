@@ -27,6 +27,12 @@ public class AddressService {
 
     public AddressDto create(AddressDto addressDto) {
         Logger logger = Logger.getAnonymousLogger();
+
+        if (null == addressDto.getCustomerId()) {
+            logger.log(Level.SEVERE, "null pointer exception was thrown", "Customer id cannot be null! Please provide the customer id!");
+            throw new NullPointerException("Customer id cannot be null! Please provide the customer id!");
+        }
+
         Address address = addressDtoToAddressEntityMapper.convert(addressDto);
 
         if (null == address) {

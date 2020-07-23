@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class CustomerEntityToCustomerDtoMapper implements Converter<Customer, CustomerDto> {
     private final AddressEntityOnlyToAddressDtoMapper addressEntityOnlyToAddressDtoMapper;
-    private final CustomerEntityOnlyToCustomerDtoMapper customerEntityOnlyToCustomerDtoMapper;
     private final OrderEntityListOnlyToOrderListDtoMapper orderEntityListOnlyToOrderListDtoMapper;
 
     @Override

@@ -1,13 +1,8 @@
 package com.siit.spring.service;
 
-import com.siit.spring.domain.entity.Invoice;
 import com.siit.spring.domain.entity.Payment;
-import com.siit.spring.domain.model.InvoiceDto;
 import com.siit.spring.domain.model.PaymentDto;
-import com.siit.spring.exception.InvoiceNotFoundException;
 import com.siit.spring.exception.PaymentNotFoundException;
-import com.siit.spring.mapper.InvoiceDtoToInvoiceEntityMapper;
-import com.siit.spring.mapper.InvoiceEntityToInvoiceDtoMapper;
 import com.siit.spring.mapper.PaymentDtoToPaymentEntityMapper;
 import com.siit.spring.mapper.PaymentEntityToPaymentDtoMapper;
 import com.siit.spring.repository.PaymentRepository;
@@ -15,7 +10,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 

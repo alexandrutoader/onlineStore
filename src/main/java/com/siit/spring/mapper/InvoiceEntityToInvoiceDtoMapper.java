@@ -1,7 +1,6 @@
 package com.siit.spring.mapper;
 
 import com.siit.spring.domain.entity.Invoice;
-import com.siit.spring.domain.entity.Order;
 import com.siit.spring.domain.model.InvoiceDto;
 import lombok.AllArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
@@ -18,6 +17,7 @@ public class InvoiceEntityToInvoiceDtoMapper implements Converter<Invoice, Invoi
             orderId = source.getOrder().getOrderId();
         }
         return InvoiceDto.builder()
+                .invoiceId(source.getInvoiceId())
                 .invoiceNumber(source.getInvoiceNumber())
                 .orderId(orderId)
                 .status(source.getStatus())

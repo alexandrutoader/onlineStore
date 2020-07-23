@@ -12,6 +12,10 @@ public class AddressEntityToAddressDtoMapper implements Converter<Address, Addre
 
     @Override
     public AddressDto convert(Address source) {
+        Long customerId = null;
+        if (null != source.getCustomer()) {
+            customerId = source.getCustomer().getCustomerId();
+        }
 
         return AddressDto.builder()
                 .addressId(source.getAddressId())
@@ -22,6 +26,7 @@ public class AddressEntityToAddressDtoMapper implements Converter<Address, Addre
                 .city(source.getCity())
                 .postalCode(source.getPostalCode())
                 .status(source.getStatus())
+                .customerId(customerId)
                 .build();
     }
 }

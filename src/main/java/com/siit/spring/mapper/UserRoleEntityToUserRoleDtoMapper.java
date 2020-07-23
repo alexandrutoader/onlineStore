@@ -12,9 +12,9 @@ public class UserRoleEntityToUserRoleDtoMapper implements Converter<UserRole, Us
     @Override
     public UserRoleDto convert(UserRole source) {
         return UserRoleDto.builder()
+                .id(source.getId())
                 .role(source.getRole())
                 .status(source.getStatus())
-                .userId(source.getUser().getId())
                 .build();
     }
 }

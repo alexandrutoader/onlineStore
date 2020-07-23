@@ -11,6 +11,4 @@ public class PaymentDto {
     private String name;
 
     private Integer status;
-
-    private Long orderId;
 }
