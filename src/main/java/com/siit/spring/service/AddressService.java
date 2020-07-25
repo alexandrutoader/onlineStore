@@ -40,7 +40,7 @@ public class AddressService {
             throw new NullPointerException("Address cannot be null! Please provide the address!");
         }
 
-        addressRepository.save(address);
+        address = addressRepository.save(address);//id, created, modified
         return addressEntityToAddressDtoMapper.convert(address);
     }
 
