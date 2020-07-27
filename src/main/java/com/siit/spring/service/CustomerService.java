@@ -29,7 +29,7 @@ public class CustomerService {
             throw new NullPointerException("Customer cannot be null! Please provide customer_id!");
         }
 
-        customerRepository.save(customer);
+        customer = customerRepository.save(customer);
         return customerEntityToCustomerDtoMapper.convert(customer);
     }
 

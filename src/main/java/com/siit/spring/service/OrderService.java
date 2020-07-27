@@ -45,7 +45,7 @@ public class OrderService {
             throw new NullPointerException("Order cannot be null!");
         }
 
-        orderRepository.save(order);
+        order = orderRepository.save(order);
         return orderEntityListOnlyToOrderListDtoMapper.convert(order);
     }
 

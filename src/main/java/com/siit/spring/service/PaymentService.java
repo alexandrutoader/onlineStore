@@ -27,7 +27,7 @@ public class PaymentService {
             throw new NullPointerException("Payment cannot be null!");
         }
 
-        paymentRepository.save(payment);
+        payment = paymentRepository.save(payment);
         return paymentEntityToPaymentDtoMapper.convert(payment);
     }
 

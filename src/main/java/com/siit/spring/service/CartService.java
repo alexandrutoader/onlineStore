@@ -30,7 +30,7 @@ public class CartService {
             throw new NullPointerException("Cart cannot be null!");
         }
 
-        cartRepository.save(cart);
+        cart = cartRepository.save(cart);
         return cartEntityToCartDtoMapper.convert(cart);
     }
 

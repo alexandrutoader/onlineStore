@@ -28,7 +28,7 @@ public class OrderStatusService {
             throw new NullPointerException("Order status object cannot be null!");
         }
 
-        orderStatusRepository.save(orderStatus);
+        orderStatus = orderStatusRepository.save(orderStatus);
         return orderStatusEntityToOrderStatusDtoMapper.convert(orderStatus);
     }
 

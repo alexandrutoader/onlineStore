@@ -29,7 +29,7 @@ public class UserRoleService {
             throw new NullPointerException("User role object cannot be null!");
         }
 
-        userRoleRepository.save(userRole);
+        userRole = userRoleRepository.save(userRole);
         return userRoleEntityToUserRoleDtoMapper.convert(userRole);
     }
 

@@ -31,7 +31,7 @@ public class UserService {
             throw new NullPointerException("User cannot be null!");
         }
 
-        userRepository.save(user);
+        user = userRepository.save(user);
         return userEntityToUserDtoMapper.convert(user);
     }
 

@@ -28,7 +28,7 @@ public class InvoiceService {
             throw new NullPointerException("Invoice cannot be null!");
         }
 
-        invoiceRepository.save(invoice);
+        invoice = invoiceRepository.save(invoice);
         return invoiceEntityToInvoiceDtoMapper.convert(invoice);
     }
 

@@ -28,7 +28,7 @@ public class ProductService {
             throw new NullPointerException("Product cannot be null!");
         }
 
-        productRepository.save(product);
+        product = productRepository.save(product);
         return productEntityToProductDtoMapper.convert(product);
     }
 
