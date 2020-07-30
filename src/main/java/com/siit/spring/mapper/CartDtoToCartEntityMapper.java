@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @AllArgsConstructor
 public class CartDtoToCartEntityMapper implements Converter<CartDto, Cart> {
@@ -24,6 +26,8 @@ public class CartDtoToCartEntityMapper implements Converter<CartDto, Cart> {
                 .customer(customer)
                 .status(source.getStatus())
                 .token(source.getToken())
+                .dateAdded(LocalDateTime.now())
+                .dateModified(LocalDateTime.now())
                 .build();
     }
 }

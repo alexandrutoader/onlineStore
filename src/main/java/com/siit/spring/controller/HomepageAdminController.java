@@ -1,30 +1,38 @@
 package com.siit.spring.controller;
 
 import com.siit.spring.domain.entity.User;
+import com.siit.spring.domain.model.ProductDto;
 import com.siit.spring.repository.UserRepository;
+import com.siit.spring.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
-@RequestMapping("/login")
-public class LoginController {
+@RequestMapping("/admin")
+public class HomepageAdminController {
     private final UserRepository userRepository;
 
-    public LoginController(UserRepository userRepository) {
+    @Autowired
+    private ProductService productService;
+
+    public HomepageAdminController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/user")
-    public String user() {
+    @GetMapping("/login")
+    public String login() {
         return "login";
     }
 
-    @PostMapping("/signIn")
+    @PostMapping("/adminDashboard")
     public String signIn(HttpServletRequest request) {
         var password = (String)request.getParameter("password");
         var email = (String)request.getParameter("email");
@@ -36,11 +44,20 @@ public class LoginController {
         }
 
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10);
-        String encodedPassword = bCryptPasswordEncoder.encode(password);
-        if (!bCryptPasswordEncoder.matches(user.getPassword(), encodedPassword)) {
-            throw new IllegalArgumentException("User or email incorrect! Please try again!");
+
+        if (!bCryptPasswordEncoder.matches(password, user.getPassword())) {
+            return "login";
         };
 
-        return "index";
+        return "indexAdmin";
+    }
+
+    @GetMapping("/products")
+    public String getProducts(Model model) {
+        List<ProductDto> productDtos = productService.getAll();
+
+        model.addAttribute("products", productDtos);
+
+        return "products";
     }
 }

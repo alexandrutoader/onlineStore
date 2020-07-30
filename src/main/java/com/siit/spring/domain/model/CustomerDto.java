@@ -29,7 +29,7 @@ public class CustomerDto {
     private List<AddressDto> addresses;
 
     @Nullable
-    private CartDto cart;
+    private List<CartDto> carts;
 
     @Nullable
     private List<OrderDto> orders;

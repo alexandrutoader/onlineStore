@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 public class CustomerDtoOnlyToCustomerEntityMapper implements Converter<CustomerDto, Customer> {
     private final OrderDtoOnlyToOrderEntityMapper orderDtoOnlyToOrderEntityMapper;
     private final AddressDtoOnlyToAddressEntityMapper addressDtoOnlyToAddressEntityMapper;
+    private final CartDtoToCartEntityMapper cartDtoToCartEntityMapper;
 
     @Override
     public Customer convert(CustomerDto source) {
@@ -31,12 +32,17 @@ public class CustomerDtoOnlyToCustomerEntityMapper implements Converter<Customer
 
         List<AddressDto> addressDtos = new ArrayList<>();
         List<OrderDto> orderDtos = new ArrayList<>();
+        List<CartDto> cartDtos = new ArrayList<>();
         if (null != source.getAddresses()) {
             addressDtos = source.getAddresses();
         }
 
         if (null != source.getOrders()) {
             orderDtos = source.getOrders();
+        }
+
+        if (null != source.getCarts()) {
+            cartDtos = source.getCarts();
         }
 
         return Customer.builder()
@@ -50,7 +56,7 @@ public class CustomerDtoOnlyToCustomerEntityMapper implements Converter<Customer
                 .agentId(source.getAgentId())
                 .addresses(mapAddresses(addressDtos))
                 .orders(mapOrders(orderDtos))
-                .cart(mapCartDto(source.getCart()))
+                .cart(mapCarts(source.getCarts()))
                 .dateAdded(LocalDateTime.now())
                 .dateModified(LocalDateTime.now())
                 .build();
@@ -82,6 +88,16 @@ public class CustomerDtoOnlyToCustomerEntityMapper implements Converter<Customer
 
         return addresses.stream()
                 .map(addressDtoOnlyToAddressEntityMapper::convert)
+                .collect(Collectors.toList());
+    }
+
+    public List<Cart> mapCarts(List<CartDto> carts) {
+        if (carts.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        return carts.stream()
+                .map(cartDtoToCartEntityMapper::convert)
                 .collect(Collectors.toList());
     }
 }

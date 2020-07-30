@@ -29,7 +29,7 @@ public class PaymentController {
         return paymentService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<PaymentDto> getAllPayments() {
         return paymentService.getAll();

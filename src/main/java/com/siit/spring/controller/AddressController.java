@@ -29,7 +29,7 @@ public class AddressController {
         return addressService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<AddressDto> getAllAddresses() {
         return addressService.getAll();

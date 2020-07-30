@@ -29,7 +29,7 @@ public class CartController {
         return cartService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<CartDto> getAllCarts() {
         return cartService.getAll();

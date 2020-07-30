@@ -29,7 +29,7 @@ public class CustomerController {
         return customerService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<CustomerDto> getAllCustomers() {
         return customerService.getAll();

@@ -11,8 +11,14 @@ import org.springframework.stereotype.Component;
 public class CartEntityToCartDtoMapper implements Converter<Cart, CartDto> {
     @Override
     public CartDto convert(Cart source) {
+        Long customerId = null;
+        if (null != source.getCustomer()) {
+            customerId = source.getCustomer().getCustomerId();
+        }
+
         return CartDto.builder()
-                .customerId(source.getCustomer().getCustomerId())
+                .id(source.getId())
+                .customerId(customerId)
                 .status(source.getStatus())
                 .token(source.getToken())
                 .build();

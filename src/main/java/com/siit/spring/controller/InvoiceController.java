@@ -29,7 +29,7 @@ public class InvoiceController {
         return invoiceService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<InvoiceDto> getAllInvoices() {
         return invoiceService.getAll();

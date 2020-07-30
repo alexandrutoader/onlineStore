@@ -29,7 +29,7 @@ public class UserRoleController {
         return userRoleService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<UserRoleDto> getAllUserRoles() {
         return userRoleService.getAll();

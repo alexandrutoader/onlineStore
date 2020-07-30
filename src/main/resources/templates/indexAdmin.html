@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="default">
+    <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.0/bootstrap/bootstrap.min.css" rel="stylesheet" title="theme">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="../static/indexAdmin.css" rel="stylesheet">
+    <style>
+        .label,.glyphicon { margin-right:5px; }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/adminDashBoard"><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
+                <li><a href="/admin/products"><span class="glyphicon glyphicon glyphicon-th-large"></span>Products</a></li>
+                <li><a href="/admin/users"><span class="glyphicon glyphicon-user"></span>Users</a></li>
+                <li><a href="/admin/orders"><span class="glyphicon glyphicon-folder-open"></span>Orders</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                        class="glyphicon glyphicon-user"></span>Admin <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/user/{id}"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/admin/login"><span class="glyphicon glyphicon-off"></span>Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

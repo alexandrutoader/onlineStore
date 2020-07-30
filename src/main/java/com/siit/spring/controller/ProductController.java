@@ -29,7 +29,7 @@ public class ProductController {
         return productService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<ProductDto> getAllProducts() {
         return productService.getAll();

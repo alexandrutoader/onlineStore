@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Web Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<include src="./indexAdmin.html"></include>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Reserved</th>
+        <th scope="col">Image</th>
+        <th scope="col">Status</th>
+        <th scope="col">Added by</th>
+        <th scope="col">Date added</th>
+        <th scope="col">Date modified</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="product: ${products}">
+            <td th:text="${product.productId}" />
+            <td th:text="${product.name}" />
+            <td th:text="${product.price} + ' ' + ${product.currency}" />
+            <td th:text="${product.quantity}" />
+            <td th:text="${product.reserved}" />
+            <td th:text="${product.image}" />
+            <td th:text="${product.status}" />
+            <td th:text="${product.addedBy}" />
+            <td th:text="${product.dateAdded}" />
+            <td th:text="${product.dateModified}" />
+            <td>
+                <a title="creat new product" class="btn btn-default btn-sm "> <i class="glyphicon glyphicon glyphicon-plus text-primary"></i> </a>
+                <a title="edit this product" class="btn btn-default btn-sm productId"> <i class="glyphicon glyphicon-edit text-primary"></i> </a>
+                <a title="delete this product" class="btn btn-default btn-sm productId"> <i class="glyphicon glyphicon-trash text-danger"></i> </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+<script>
+   $('.productId').on('click', function () {
+        $.ajax({
+            type: "POST",
+            data: data,
+            url: addOrderProductPostLink,
+            success: function () {
+                refreshProductsOnOrder();
+                refreshSearchedProduct();
+            }
+        });
+   }
+</script>

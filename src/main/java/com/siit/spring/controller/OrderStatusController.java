@@ -29,7 +29,7 @@ public class OrderStatusController {
         return orderStatusService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<OrderStatusDto> getAllOrderStatuses() {
         return orderStatusService.getAll();

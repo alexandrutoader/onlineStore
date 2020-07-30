@@ -29,7 +29,7 @@ public class UserController {
         return userService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<UserDto> getAllUsers() {
         return userService.getAll();

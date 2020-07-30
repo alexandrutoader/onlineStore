@@ -53,8 +53,8 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Address> addresses;
 
-    @OneToOne(mappedBy = "customer")
-    private Cart cart;
+    @OneToMany(mappedBy = "customer")
+    private List<Cart> cart;
 
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;

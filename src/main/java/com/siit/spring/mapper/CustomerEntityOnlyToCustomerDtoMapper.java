@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 public class CustomerEntityOnlyToCustomerDtoMapper implements Converter<Customer, CustomerDto> {
     private final OrderEntityListOnlyToOrderListDtoMapper orderEntityListOnlyToOrderListDtoMapper;
     private final AddressEntityOnlyToAddressDtoMapper addressEntityOnlyToAddressDtoMapper;
+    private final CartEntityToCartDtoMapper cartEntityToCartDtoMapper;
 
     @Override
     public CustomerDto convert(Customer source) {
@@ -33,7 +34,7 @@ public class CustomerEntityOnlyToCustomerDtoMapper implements Converter<Customer
                 .email(source.getEmail())
                 .agentId(source.getAgentId())
                 .orders(mapOrders(source.getOrders()))
-                .cart(mapCart(source.getCart()))
+                .carts(mapCarts(source.getCart()))
                 .addresses(mapAddresses(source.getAddresses()))
                 .build();
     }
@@ -57,6 +58,12 @@ public class CustomerEntityOnlyToCustomerDtoMapper implements Converter<Customer
     public List<AddressDto> mapAddresses(List<Address> addresses) {
         return addresses.stream()
                 .map(addressEntityOnlyToAddressDtoMapper::convert)
+                .collect(Collectors.toList());
+    }
+
+    public List<CartDto> mapCarts(List<Cart> carts) {
+        return carts.stream()
+                .map(cartEntityToCartDtoMapper::convert)
                 .collect(Collectors.toList());
     }
 }

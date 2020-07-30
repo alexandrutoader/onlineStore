@@ -15,15 +15,15 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center">Sign In</h5>
-                    <form class="form-signin" method="POST" action="/login/signIn">
+                    <form class="form-signin" method="POST" action="/admin/adminDashboard">
                         <div class="form-label-group">
+                            <label for="email">Email</label>
                             <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
-                            <label for="email">User name</label>
                         </div>
 
-                        <div class="form-label-group">
-                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <div class="form-label-group mt-3">
                             <label for="inputPassword">Password</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
                         </div>
 
                         <div class="custom-control custom-checkbox mb-3">
