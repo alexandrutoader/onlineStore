@@ -9,6 +9,7 @@ import javax.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -47,6 +48,6 @@ public class Product {
     @Column(name = "date_modified")
     private LocalDateTime dateModified;
 
-    @OneToOne(mappedBy = "product")
-    private CartProducts cartProduct;
+    @OneToMany(mappedBy = "product")
+    private List<CartProducts> cartProduct;
 }
